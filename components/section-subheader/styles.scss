@@ -1,0 +1,36 @@
+//@import 'src/scss/helpers';
+
+.section-subheader {
+  position: relative;
+  margin-bottom: 30px;
+
+  &_center {
+    text-align: center;
+  }
+
+  &__title {
+    color: palette(mono, white);
+    font-size: 30px;
+    line-height: 1.2;
+    strong {
+      color: palette(brand, red);
+    }
+    + * {
+      margin-top: 30px;
+    }
+  }
+
+  @include breakpoint-up(sm) {
+    margin-bottom: 45px;
+    &__title {
+      font-size: 30px;
+    }
+  }
+
+  @include breakpoint-up(lg) {
+    margin-bottom: 60px;
+    &__title {
+      font-size: 45px;
+    }
+  }
+}

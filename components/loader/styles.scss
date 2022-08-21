@@ -1,0 +1,130 @@
+//@import 'scss/helpers';
+
+.loader {
+  display: inline-block;
+  position: relative;
+  @include size(60px);
+
+  &__ball {
+    @include position-absolute();
+    @include size(55px);
+    opacity: 0;
+    transform: rotate(225deg);
+    animation: orbit 4.2325s infinite;
+    &_1 {
+      animation-delay: 0.926s;
+    }
+
+    &_2 {
+      animation-delay: 0.183s;
+    }
+
+    &_3 {
+      animation-delay: 0.3665s;
+    }
+
+    &_4 {
+      animation-delay: 0.5495s;
+    }
+
+    &_5 {
+      animation-delay: 0.743s;
+    }
+  }
+  &__inner {
+    @include position-absolute(0, null, null, 0);
+    @include size(5px);
+    background: palette(mono, black);
+    border-radius: 3px;
+  }
+
+  &_small {
+    @include size(28px);
+  }
+
+  &_small & {
+    &__ball {
+      @include size(27px);
+    }
+    &__inner {
+      @include size(4px);
+    }
+  }
+
+  &_above {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include position-fixed(0, 0);
+    @include size(100%);
+    z-index: 1000;
+    background-color: palette(mono, grey);
+  }
+
+  &_white & {
+    &__inner {
+      background-color: palette(mono, white);
+    }
+  }
+
+  &_red &{
+    &__inner {
+      background-color: palette(brand, red);
+    }
+  }
+}
+
+
+@keyframes orbit {
+  0% {
+    opacity: 1;
+    z-index:99;
+    transform: rotate(180deg);
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    opacity: 1;
+    transform: rotate(300deg);
+    animation-timing-function: linear;
+    origin:0%;
+  }
+
+  30% {
+    opacity: 1;
+    transform:rotate(410deg);
+    animation-timing-function: ease-in-out;
+    origin:7%;
+  }
+
+  39% {
+    opacity: 1;
+    transform: rotate(645deg);
+    animation-timing-function: linear;
+    origin:30%;
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(770deg);
+    animation-timing-function: ease-out;
+    origin:39%;
+  }
+
+  75% {
+    opacity: 1;
+    transform: rotate(900deg);
+    animation-timing-function: ease-out;
+    origin:70%;
+  }
+
+  76% {
+    opacity: 0;
+    transform:rotate(900deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(900deg);
+  }
+}

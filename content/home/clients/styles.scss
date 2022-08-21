@@ -1,0 +1,45 @@
+//@import 'src/scss/helpers';
+
+.home-clients {
+  @include margin-y(60px);
+
+  &__grid {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: darken(palette(mono, grey), 2%);
+
+    @include breakpoint-up(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: palette(mono, grey);
+    padding: 15px;
+
+    img {
+      height: auto;
+      max-height: 30px;
+      width: auto;
+      max-width: 100px;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  @include breakpoint-up(md) {
+    @include margin-y(90px);
+
+    &__item {
+      padding: 25px;
+      img {
+        max-height: 80px;
+        max-width: 140px;
+      }
+    }
+  }
+}

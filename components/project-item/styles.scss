@@ -1,0 +1,122 @@
+//@import 'src/scss/helpers';
+
+.project-item {
+  $parent: &;
+  display: block;
+  height: 100vw;
+  position: relative;
+  overflow: hidden;
+
+  &__link {
+    @include position-absolute(0, 0);
+    @include size(100%);
+    &:before {
+      content: '';
+      @include position-absolute(0, 0);
+      @include size(100%);
+      background-color: transparentize(palette(mono, black), 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: all ease 0.3s;
+      z-index: 1;
+    }
+  }
+
+  &__link:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__image {
+    transition: all 0.35s ease;
+    display: block;
+    @include size(100%);
+    object-fit: cover;
+  }
+
+  &__caption {
+    @include position-absolute(50%, null, null, 0);
+    @include padding-x(15px);
+    width: 100%;
+    transform: translateY(-50%);
+    color: palette(mono, white);
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 20px;
+    opacity: 0;
+    transition: all ease 0.3s;
+    transform: translateY(10px);
+    color: palette(mono, white);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+  }
+
+  &__content {
+    font-size: 15px;
+    opacity: 0;
+    transition: all ease 0.3s 0.1s;
+    transform: translateY(30px);
+    color: palette(mono, white);
+    margin-bottom: 10px;
+  }
+
+  &__categories {
+    transition: all ease 0.3s 0.2s;
+    transform: translateY(40px);
+    opacity: 0;
+    margin-bottom: 20px;
+    span {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: palette(mono, white);
+      text-decoration: none;
+      transition: all ease 0.3s;
+      &:hover {
+        color: palette(brand, red);
+      }
+      &:not(:last-child):after {
+        content: ', ';
+      }
+    }
+  }
+
+  &__footer {
+    transition: all ease 0.3s 0.25s;
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  &__link:hover & {
+    &__title,
+    &__categories,
+    &__content,
+    &__footer {
+      opacity: 1;
+      transform: none;
+    }
+    &__image {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  @include breakpoint-up(sm) {
+    height: 50vw;
+    &__title {
+      font-size: 30px;
+    }
+    &__content {
+      max-width: 350px;
+    }
+    &__caption {
+      padding-left: 25px;
+    }
+  }
+
+  @include breakpoint-up(md) {
+    height: 33.3333vw;
+  }
+}

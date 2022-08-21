@@ -1,0 +1,32 @@
+//@import 'src/scss/helpers';
+
+.header {
+  @include position-fixed(0, null, null, 0);
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: z-index(header);
+  transition: all ease 0.3s;
+
+  &_scrolled,
+  &_static-background {
+    background-color: darken(palette(mono, grey), 2%);
+  }
+
+  @include breakpoint-up(md) {
+    padding: 20px 30px;
+  }
+
+  &__link {
+    font-size: 0;
+  }
+
+  &__image {
+    height: 14px;
+    @include breakpoint-up(md) {
+      height: 16px;
+    }
+  }
+}

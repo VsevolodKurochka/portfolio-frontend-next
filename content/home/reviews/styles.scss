@@ -1,0 +1,111 @@
+//@import 'scss/helpers';
+
+.home-reviews {
+
+  position: relative;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    transition: all ease 0.3s;
+    opacity: 1;
+    visibility: visible;
+    background-color: palette(brand, red);
+    z-index: 2;
+    cursor: pointer;
+    &:before {
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      color: palette(mono, white);
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 1;
+    }
+    &:hover:not(.swiper-button-disabled) {
+      background-color: darken(palette(brand, red), 5%);
+      &:before {
+        color: palette(mono, white);
+      }
+    }
+    &.swiper-button-disabled {
+      cursor: not-allowed;
+      filter: grayscale(1);
+    }
+  }
+
+  .swiper-button-prev {
+    right: 55px;
+    &:before {
+      content: '←';
+    }
+  }
+
+  .swiper-button-next {
+    right: 0;
+    &:before {
+      content: '→';
+    }
+  }
+
+  .swiper-container {
+    cursor: grab;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .swiper-pagination-bullet {
+    display: inline-block;
+    margin-right: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: palette(mono, greyLight);
+    transition: all ease 0.3s;
+
+    &.swiper-pagination-bullet-active,
+    &:hover {
+      background-color: palette(brand, red);
+    }
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  @include breakpoint-up(sm) {
+    .swiper-button-prev {
+      left: 15px;
+      right: auto;
+    }
+    .swiper-button-next {
+      right: 15px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 50%;
+    }
+    .swiper-container {
+      padding-top: 0;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  @include breakpoint-up(lg) {
+    .swiper-container {
+      padding-left: calc(50% - 1170px/2 + 15px);
+    }
+  }
+}

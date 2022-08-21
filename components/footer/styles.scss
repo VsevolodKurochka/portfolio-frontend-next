@@ -1,0 +1,71 @@
+//@import 'scss/helpers';
+
+.footer {
+  @include position-fixed(null, null, 0, 0);
+  @include padding-y(45px);
+  width: 100%;
+  background-color: palette(mono, black);
+  color: palette(mono, white);
+
+  &__logo {
+    height: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__logo-link {
+    display: block;
+    font-size: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-gap: 30px;
+  }
+
+  &__copy {
+    color: palette(mono, greyLight);
+    font-size: 12px;
+  }
+
+  &__tools {
+    color: palette(mono, greyMiddle);
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  &__link {
+    color: palette(mono, white);
+    text-decoration: none;
+    transition: all ease 0.3s;
+    &:hover {
+      color: palette(brand, red);
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+  }
+
+  @include breakpoint-up(sm) {
+    &__contact {
+      text-align: right;
+    }
+
+    &__social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @include breakpoint-up(md) {
+    &__copy {
+      font-size: 14px;
+    }
+  }
+}

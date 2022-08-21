@@ -1,0 +1,24 @@
+@import './helpers';
+@import './reset';
+@import './fonts';
+@import './base';
+
+
+@import '../components/button/styles';
+@import '../components/container/styles';
+@import '../components/footer/styles';
+@import '../components/header/styles';
+@import '../components/header/components/full-menu/styles';
+@import '../components/header/components/toggle/styles';
+@import '../components/loader/styles';
+@import '../components/project-item/styles';
+@import '../components/projects-grid/styles';
+@import '../components/projects-tabs/styles';
+@import '../components/review-item/styles';
+@import '../components/section-header/styles';
+@import '../components/section-subheader/styles';
+@import '../components/social/styles';
+@import '../components/wrapper/styles';
+
+//PAGEs
+@import "../content/home/greeting/styles";

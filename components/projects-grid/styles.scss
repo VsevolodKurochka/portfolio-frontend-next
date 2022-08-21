@@ -1,0 +1,18 @@
+//@import 'src/scss/helpers';
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  &-loader {
+    text-align: center;
+  }
+
+  @include breakpoint-up(sm) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint-up(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

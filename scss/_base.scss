@@ -1,0 +1,10 @@
+body {
+  font-family: $font-family;
+  font-weight: $font-weight-regular;
+  line-height: $font-line-height;
+  font-size: $font-size-default;
+}
+
+html, body {
+  background-color: palette(mono, grey);
+}

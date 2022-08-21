@@ -1,0 +1,60 @@
+//@import 'src/scss/helpers';
+
+.section-header {
+  position: relative;
+  padding: 60px 30px 45px 30px;
+
+  &_center {
+    text-align: center;
+  }
+
+  &_full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  &__particles {
+    @include position-absolute(0, null, null, 0);
+    @include size(100%);
+  }
+
+  strong {
+    color: palette(brand, red);
+  }
+
+  &__title {
+    color: palette(mono, white);
+    font-size: 45px;
+    line-height: 1;
+  }
+
+  &__subtitle {
+    color: palette(mono, white);
+    font-size: 20px;
+  }
+
+  &__title + * {
+    margin-top: 30px;
+  }
+
+  @include breakpoint-up(sm) {
+    @include padding-y(120px);
+
+    &__title {
+      font-size: 75px;
+    }
+
+    &__subtitle {
+      max-width: 700px;
+    }
+  }
+
+  @include breakpoint-up(lg) {
+    &__title {
+      font-size: 120px;
+    }
+  }
+}

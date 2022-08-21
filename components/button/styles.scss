@@ -1,0 +1,109 @@
+//@import 'scss/helpers';
+
+@mixin button-pseudo() {
+  content: '';
+  @include position-absolute(0, null, null, 0);
+  @include size(100%);
+  transform: translateY(105%);
+  transition: all ease 0.3s;
+  z-index: -1;
+  visibility: hidden;
+}
+
+@mixin button-filled() {
+  border-radius: 35px;
+  &:before {
+    @include button-pseudo();
+  }
+  &:hover:before {
+    transform: none;
+    visibility: visible;
+  }
+}
+
+.btn {
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  transform: translateZ(0);
+  transition: all ease 0.3s;
+  cursor: pointer;
+
+  &_default {
+    font-size: 12px;
+    padding: 15px 30px;
+  }
+
+  &_small {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  &_border {
+    border-radius: 35px;
+    border: 2px solid palette(mono, white);
+    color: palette(mono, white);
+    background-color: transparent;
+    overflow: hidden;
+    &:before {
+      @include button-pseudo();
+      background-color: palette(mono, white);
+    }
+    &:hover {
+      color: palette(mono, black);
+    }
+    &:hover:before {
+      transform: none;
+    }
+  }
+
+  &_filled {
+    &-white {
+      @include button-filled();
+      background-color: palette(mono, white);
+      color: palette(mono, black);
+      &:before {
+        background-color: palette(brand, red);
+      }
+      &:hover {
+        color: palette(mono, white);
+      }
+    }
+    &-brand {
+      @include button-filled();
+      background-color: palette(brand, red);
+      color: palette(mono, white);
+      &:before {
+        background-color: darken(palette(brand, red), 15%);
+      }
+      &:hover {
+        color: palette(mono, white);
+      }
+    }
+  }
+
+  &_black {
+    background-color: palette(mono, black);
+    color: palette(mono, white);
+    border-radius: 35px;
+  }
+
+  &_info {
+    background-color: palette(warning, info);
+    color: palette(mono, white);
+  }
+
+  &_delete {
+    background-color: palette(warning, danger);
+    color: palette(mono, white);
+  }
+}

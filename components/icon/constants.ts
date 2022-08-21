@@ -1,0 +1,9 @@
+enum ICONS {
+	TELEGRAM = 'TELEGRAM',
+	LINKEDIN = 'LINKEDIN',
+	TWITTER = 'TWITTER'
+}
+
+export {
+	ICONS
+};
